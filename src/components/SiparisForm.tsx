@@ -36,7 +36,7 @@ import { validateSiparisForm, validateSiparisField } from '../validators/siparis
 import { getSiparisDefaultValues } from '../defaults/siparisDefaultValue';
 import { useSiparisActionMenu } from '../hooks/useSiparisActionMenu';
 import { generateBelgeNo } from '../utils/belgeUtils';
-import { kampanyalarService } from '../../UrunYonetimi/services/KampanyalarService';
+import { kampanyalarService } from '@akalin/product_module';
 
 export const getIslemTuruFromTip = (tipStr: string): number => {
     switch (tipStr) {
