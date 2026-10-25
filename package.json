@@ -1,0 +1,38 @@
+{
+  "name": "@akalin/order_module",
+  "version": "1.0.0",
+  "description": "Webakus ERP ekosistemi için bağımsız, yeniden kullanılabilir Alınan/Verilen Siparişler ve Sıcak Satış/Teklif yönetim modülü.",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "webakus",
+    "erp",
+    "order",
+    "siparis",
+    "teklif",
+    "sicak-satis",
+    "sales-order",
+    "purchase-order",
+    "akalin"
+  ],
+  "author": "Akalin Software",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "@akalin/module_core": "*",
+    "@akalin/ui": "*",
+    "@akalin/customer_module": "*",
+    "@akalin/product_module": "*",
+    "@akalin/warehouse_module": "*",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "react-router-dom": ">=6.0.0",
+    "react-i18next": "*",
+    "react-hot-toast": "*",
+    "lucide-react": "*",
+    "axios": "*"
+  }
+}
