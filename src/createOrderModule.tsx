@@ -11,6 +11,7 @@ import {
   type IOrderServiceAdapter
 } from './adapters/OrderServiceContext';
 import { OrderModuleConfig } from './types';
+import { orderCards, orderDocuments, orderReports } from './definitions/entities';
 
 // Lazy-loaded Sayfalar
 const SiparislerPage = lazy(() => import('./pages/Siparisler'));
@@ -45,71 +46,10 @@ export const createOrderModule = (
     iconName: 'ShoppingCart',
     order: 30,
     version: '1.0.0',
-    documents: [
-      {
-        id: 'sicak-satis-teklifi',
-        category: 'belge',
-        titleKey: 'Sıcak Satış / Teklifler',
-        route: '/siparisler/teklif',
-        useStandardCrud: true,
-        customActions: [
-          { action: 'siparise-donustur', labelKey: 'Siparişe Dönüştür', description: 'Teklif seçeneğini alınan siparişe dönüştürme' },
-          { action: 'maliyet-analiz', labelKey: 'Kârlılık Analizi Görme', description: 'Maliyet ve net kâr kırılımını görüntüleme' }
-        ]
-      },
-      {
-        id: 'alinan-siparis',
-        category: 'belge',
-        titleKey: 'Alınan Sipariş',
-        route: '/siparisler/alinan',
-        useStandardCrud: true,
-        customActions: [
-          { action: 'onayla', labelKey: 'Sipariş Onaylama', description: 'Müşteri siparişini onaylama' },
-          { action: 'irsaliye-aktar', labelKey: 'İrsaliyeye Aktar', description: 'Siparişi sevk irsaliyesine dönüştürme' },
-          { action: 'fatura-aktar', labelKey: 'Faturaya Aktar', description: 'Siparişi faturaya dönüştürme' },
-          { action: 'iptal-et', labelKey: 'Sipariş İptal Et', description: 'Siparişi iptal etme', danger: true }
-        ]
-      },
-      {
-        id: 'verilen-siparis',
-        category: 'belge',
-        titleKey: 'Verilen Sipariş',
-        route: '/siparisler/verilen',
-        useStandardCrud: true,
-        customActions: [
-          { action: 'onayla', labelKey: 'Sipariş Onaylama', description: 'Tedarikçi siparişini onaylama' },
-          { action: 'irsaliye-aktar', labelKey: 'İrsaliyeye Aktar', description: 'Siparişi alış irsaliyesine dönüştürme' },
-          { action: 'fatura-aktar', labelKey: 'Faturaya Aktar', description: 'Siparişi alış faturasına dönüştürme' },
-          { action: 'iptal-et', labelKey: 'Sipariş İptal Et', description: 'Siparişi iptal etme', danger: true }
-        ]
-      },
-      {
-        id: 'alinan-siparis-iade',
-        category: 'belge',
-        titleKey: 'Alınan Sipariş İade',
-        route: '/siparisler/alinan-iade',
-        useStandardCrud: true,
-        customActions: [
-          { action: 'onayla', labelKey: 'Sipariş Onaylama', description: 'Müşteri iade siparişini onaylama' },
-          { action: 'irsaliye-aktar', labelKey: 'İrsaliyeye Aktar', description: 'İade siparişini irsaliyeye dönüştürme' },
-          { action: 'fatura-aktar', labelKey: 'Faturaya Aktar', description: 'İade siparişini faturaya dönüştürme' },
-          { action: 'iptal-et', labelKey: 'Sipariş İptal Et', description: 'Siparişi iptal etme', danger: true }
-        ]
-      },
-      {
-        id: 'verilen-siparis-iade',
-        category: 'belge',
-        titleKey: 'Verilen Sipariş İade',
-        route: '/siparisler/verilen-iade',
-        useStandardCrud: true,
-        customActions: [
-          { action: 'onayla', labelKey: 'Sipariş Onaylama', description: 'Tedarikçi iade siparişini onaylama' },
-          { action: 'irsaliye-aktar', labelKey: 'İrsaliyeye Aktar', description: 'İade siparişini irsaliyeye dönüştürme' },
-          { action: 'fatura-aktar', labelKey: 'Faturaya Aktar', description: 'İade siparişini faturaya dönüştürme' },
-          { action: 'iptal-et', labelKey: 'Sipariş İptal Et', description: 'Siparişi iptal etme', danger: true }
-        ]
-      }
-    ],
+    strictEntityRegistration: true,
+    cards: orderCards,
+    documents: orderDocuments,
+    reports: orderReports,
     routes: [
       {
         path: '/siparisler/teklif/yeni',

@@ -16,6 +16,7 @@ export * from './adapters/OrderServiceContext';
 
 // Tipler ve DTO'lar
 export * from './types';
+export * from './definitions/entities';
 export * from './dtos/SatisBelgeleriDto';
 
 // Servisler
